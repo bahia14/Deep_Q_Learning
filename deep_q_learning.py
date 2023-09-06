@@ -32,10 +32,10 @@ os.chdir('G:\Python Kalman\Deep Q-learning')
 
 '''
 
-!wget https://launchpad.net/~mario-mariomedina/+archive/ubuntu/talib/+files/libta-lib0_0.4.0-oneiric1_amd64.deb -qO libta.deb
-!wget https://launchpad.net/~mario-mariomedina/+archive/ubuntu/talib/+files/ta-lib0-dev_0.4.0-oneiric1_amd64.deb -qO ta.deb
-!dpkg -i libta.deb ta.deb
-!pip install ta-lib
+#!wget https://launchpad.net/~mario-mariomedina/+archive/ubuntu/talib/+files/libta-lib0_0.4.0-oneiric1_amd64.deb -qO libta.deb
+#!wget https://launchpad.net/~mario-mariomedina/+archive/ubuntu/talib/+files/ta-lib0-dev_0.4.0-oneiric1_amd64.deb -qO ta.deb
+#!dpkg -i libta.deb ta.deb
+#!pip install ta-lib
 
 # Import libraries
 import pandas as pd
@@ -51,7 +51,7 @@ from Agent import Agent
 
 # Load NASDAQ-100 data
 #data_folder = '../Index Replication by Auto-encoders/data/'
-alldata = pd.read_pickle("/content/nasdaq100_6y.pkl")
+alldata = pd.read_pickle("nasdaq100_6y.pkl")
 
 # Stock symbol
 symbol = 'AAL'
@@ -256,7 +256,7 @@ def run(agent, dataX, dataY, episodes, look_back):
 
     return
 
-!pip freeze > requirements.txt
+#!pip freeze > requirements.txt
 
 import numpy as np
 # Train Agent
