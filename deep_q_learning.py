@@ -41,6 +41,8 @@ os.chdir('G:\Python Kalman\Deep Q-learning')
 '''
 ## installing ta-lib in Streamlit
 '''
+print("installing ta-lib")
+
 import streamlit as st
 import requests
 import os
@@ -80,9 +82,12 @@ lib = CDLL("/home/appuser/lib/libta_lib.so.0.0.0")
 try:
     import talib
 except ImportError:
+    print("ta-lib installation error")
     subprocess.check_call([sys.executable, "-m", "pip", "install", "--global-option=build_ext", "--global-option=-L/home/appuser/lib/", "--global-option=-I/home/appuser/include/", "ta-lib"])
 finally:
     import talib
+    print("ta-lib installed")
+
 
 ######
 
@@ -100,6 +105,7 @@ from Agent import Agent
 
 # Load NASDAQ-100 data
 #data_folder = '../Index Replication by Auto-encoders/data/'
+print("reading nasdaq100_6y")
 alldata = pd.read_pickle("nasdaq100_6y.pkl")
 
 # Stock symbol
@@ -225,6 +231,8 @@ look_back = 15
 batch_size = 32
 action_size = len(le.classes_)
 n_features = X_train.shape[1]
+
+print("Create Agent")
 
 # Create Agent
 agent = Agent(look_back, action_size, n_features)
@@ -381,6 +389,8 @@ def evaluate(agent, dataX, dataY, look_back):
 
 # Evaluate the model
 # Make predictions
+print("Make predictions")
+
 y_pred_test = evaluate(agent, X_test, y_test, look_back)
 
 # Calculate and print accuracy
