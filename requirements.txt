@@ -55,7 +55,7 @@ tensorstore==0.1.41
 
 tf-slim==1.1.0
 
-ta-lib==0.4.28
+#ta-lib==0.4.28
 torchdata==0.6.1
 torchsummary==1.5.1
 
